@@ -1,0 +1,36 @@
+
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:1.19
+    ports:
+      - "8083:80"  # Asegúrate de que el puerto está correctamente mapeado
+    volumes:
+      - ./src:/var/www/php
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d  # Configuración personalizada de Nginx
+    depends_on:
+      - php
+    networks:
+      - webnet
+
+  php:
+    image: php:8.0-fpm
+    working_dir: /var/www/php
+    volumes:
+      - ./src:/var/www/php
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
+
+# Más info en
+# https://tech.osteel.med/posts/docker-for-local-web-development-part-1-a-basic-lemp-stack
+
+# Lanzar con
+# docker-compose up -d
+
+# Ver los logs con
+# docker-compose logs -f
