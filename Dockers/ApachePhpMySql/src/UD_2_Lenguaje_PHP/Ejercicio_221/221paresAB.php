@@ -1,15 +1,15 @@
 <?php
 if (!empty($_POST))
 {
-    $inicio = 1; //$_POST["inicio"]
-    $fin = 20;//$_POST["fin"]
+    $inicio = $_POST["inicio"];
+    $fin = $_POST["fin"];
 
     $listaDePares = "<ul>";
-    for ($inicio < $fin; $inicio++;)
+    for ($i = $inicio; $i <= $fin; $i++)
     {   
-        if ( $inicio%2 == 0 )
+        if ( $i%2 == 0 )
         {
-            $listaDePares .= "<li>" . $inicio . "</li>";
+            $listaDePares .= "<li>" . $i . "</li>";
         }
     }
     $listaDePares .= "</ul>";
