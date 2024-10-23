@@ -22,7 +22,7 @@
         #[\Override]
         function muestraResumen()
         {   
-            echo (parent::muestraResumen() . "<p>Formato: " . $this->getFormatPantalla() . "</p>" .
+            return (parent::muestraResumen() . "<p>Formato: " . $this->getFormatPantalla() . "</p>" .
                   "<p>Idiomas: " . $this->getIdiomas() . "</p>");
         }
     }

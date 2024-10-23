@@ -15,7 +15,7 @@
 
         function muestraResumen()
         {
-            echo (parent::muestraResumen() . "<p>Duración: " . $this->getDuracion() . "min</p>");
+            return (parent::muestraResumen() . "<p>Duración: " . $this->getDuracion() . "min</p>");
         }
     }
 ?>

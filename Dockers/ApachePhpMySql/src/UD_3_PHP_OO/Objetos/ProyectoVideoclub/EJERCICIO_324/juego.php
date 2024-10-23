@@ -34,7 +34,7 @@
             {
                 $cadena .= "<p>El juego es para 1 jugador</p>";
             }
-            echo $cadena;
+            return $cadena;
         }
     }
 ?>

@@ -27,7 +27,7 @@
 
         function muestraResumen()
         {
-            echo ("<h2>" . $this->titulo . "</h2>" .
+            return ("<h2>" . $this->titulo . "</h2>" .
                         "<p>Numero: " . $this->getNumeroId() . "</p>" .
                         "<p>Precio: " . $this->getPrecio() . "</p>" .
                         "<p>Precio con IVA: " . $this->getPrecioConIVA() . " €</p>");
