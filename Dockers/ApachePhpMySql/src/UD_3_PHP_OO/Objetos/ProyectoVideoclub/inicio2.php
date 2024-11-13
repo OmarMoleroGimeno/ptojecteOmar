@@ -4,73 +4,39 @@
     use Objetos\ProyectoVideoclub\Dvd;
     use Objetos\ProyectoVideoclub\Juego;
     use Objetos\ProyectoVideoclub\Cliente;
+    use Objetos\ProyectoVideoclub\Videoclub;
     include_once "./cintaVideo.php";
     include_once "./dvd.php";
     include_once "./juego.php";
     include_once "./cliente.php";
+    include_once "./videoClub.php";
 
     echo('<div class="centrado">
             <img height="300em"  src="./Assets/JPnAV2HBlz6VHh92gjcviUq39JrPvnJNbtti56xDgS9Aza6E-removebg-preview.png" alt="Feo">
         </div>');
 
-    // $soporte1 = new Soporte("Tenet", 22); 
-    // echo "<strong>" . $soporte1->titulo . "</strong>"; 
-    // echo "<br>Precio: " . $soporte1->getPrecio() . " €"; 
-    // echo "<br>Precio con IVA: " . $soporte1->getPrecioConIVA() . " €";
-    echo("<div class='container'>");
-        // echo("<div>");
-        // echo $soporte1->muestraResumen();
-        // echo("</div>");
+        $vc = new Videoclub("Severo 8A");
+        $vc->incluirJuego("God of War", 19.99, "PS4", 1, 1); 
+        $vc->incluirJuego("The Last of Us Part II", 49.99, "PS4", 1, 1);
+        $vc->incluirDvd("Torrente", 4.5, "es","16:9"); 
+        $vc->incluirDvd("Origen", 4.5, "es,en,fr", "16:9"); 
+        $vc->incluirDvd("El Imperio Contraataca", 3, "es,en","16:9");
+        $vc->incluirCintaVideo("Los cazafantasmas", 3.5, 107); 
+        $vc->incluirCintaVideo("El nombre de la Rosa", 1.5, 140);
 
-        $miCinta = new CintaVideo("Los cazafantasmas", 3.5, 107); 
-        // echo "</br></br><strong>" . $miCinta->titulo . "</strong>"; 
-        // echo "<br>Precio: " . $miCinta->getPrecio() . " €"; 
-        // echo "<br>Precio con IVA: " . $miCinta->getPrecioConIva() . " €";
-        echo("<div>");
-        echo $miCinta->muestraResumen();
-        echo("</div>");
-
-        $miDvd = new Dvd("Origen", 15, "es,en,fr", "16:9");
-        // echo "<strong>" . $miDvd->titulo . "</strong>"; 
-        // echo "<br>Precio: " . $miDvd->getPrecio() . " €"; 
-        // echo "<br>Precio con IVA: " . $miDvd->getPrecioConIva() . " €";
-        echo("<div>");
-        echo $miDvd->muestraResumen();
-        echo("</div>");
-
-        echo("<div>");
-        $miJuego = new Juego("The Last of Us Part II", 49.99, "PS4", 1, 1);
-        echo $miJuego->muestraResumen();
-        echo("</div>");
-    echo("</div>");
-
-    $cliente1 = new Cliente("Bruce Wayne",  3);
-    $cliente2 = new Cliente("Clark Kent", 33);
-
-    $soporte1 = new CintaVideo("Los cazafantasmas", 3.5, 107);
-    $soporte2 = new Juego("The Last of Us Part II", 49.99, "PS4", 1, 1);  
-    $soporte3 = new Dvd("Origen", 24, "es,en,fr", "16:9");
-    $soporte4 = new Dvd("El Imperio Contraataca", 3, "es,en","16:9");
-
-    $cliente1->alquilar($soporte1);
-    $cliente1->alquilar($soporte2);
-    $cliente1->alquilar($soporte1);
-    $cliente1->alquilar($soporte3);
-    $cliente1->alquilar($soporte4);
     echo("<div class='container'>");
         echo("<div>");
-        $cliente1->muestraResumen();
+            echo $vc->listarProductos();
         echo("</div>");
-        echo("<div>");
-        $cliente1->devolver(0);
-        echo("</div>");
-        echo("<div>");
-        $cliente1->devolver(1);
-        echo("</div>");
-        echo("<div>");
-        $cliente1->listarAlquileres();
-        echo("</div>");
+
     echo("</div>");
+
+    $vc->incluirSocio("Amancio Ortega"); 
+    $vc->incluirSocio("Pablo Picasso", 2);
+    echo ("<p>Alquilar producto</p>");
+    $vc->alquilaSocioProducto(1,2);
+    $vc->alquilaSocioProducto(4,3); 
+    
 
 ?>
 

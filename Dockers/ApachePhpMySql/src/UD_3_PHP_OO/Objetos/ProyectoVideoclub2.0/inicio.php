@@ -1,13 +1,15 @@
 <?php
     namespace Objetos\ProyectoVideoclub;
+    include_once("./soporte.php");
+    include_once("./cintaVideo.php");
+    include_once("./dvd.php");
+    include_once("./juego.php");
+    include_once("./cliente.php");
+    use Objetos\ProyectoVideoclub\Soporte;
     use Objetos\ProyectoVideoclub\CintaVideo;
     use Objetos\ProyectoVideoclub\Dvd;
     use Objetos\ProyectoVideoclub\Juego;
     use Objetos\ProyectoVideoclub\Cliente;
-    include_once "./cintaVideo.php";
-    include_once "./dvd.php";
-    include_once "./juego.php";
-    include_once "./cliente.php";
 
     echo('<div class="centrado">
             <img height="300em"  src="./Assets/JPnAV2HBlz6VHh92gjcviUq39JrPvnJNbtti56xDgS9Aza6E-removebg-preview.png" alt="Feo">
@@ -37,7 +39,6 @@
         echo("<div>");
         echo $miDvd->muestraResumen();
         echo("</div>");
-
         echo("<div>");
         $miJuego = new Juego("The Last of Us Part II", 49.99, "PS4", 1, 1);
         echo $miJuego->muestraResumen();
@@ -56,7 +57,6 @@
     $cliente1->alquilar($soporte2);
     $cliente1->alquilar($soporte1);
     $cliente1->alquilar($soporte3);
-    $cliente1->alquilar($soporte4);
     echo("<div class='container'>");
         echo("<div>");
         $cliente1->muestraResumen();
@@ -71,6 +71,12 @@
         $cliente1->listarAlquileres();
         echo("</div>");
     echo("</div>");
+
+    
+
+    
+
+    
 
 ?>
 
