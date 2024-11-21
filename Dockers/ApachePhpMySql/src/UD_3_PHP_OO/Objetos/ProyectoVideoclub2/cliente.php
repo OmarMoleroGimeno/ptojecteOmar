@@ -1,5 +1,5 @@
 <?php
-    namespace Objetos\ProyectoVideoclub;
+    namespace Objetos\ProyectoVideoclub2;
     include_once("soporte.php");
     class Cliente 
     {
@@ -80,11 +80,13 @@
             }
 
             echo $cadena;
+            return $this;
         }
 
         function devolver(int $numSoporte)
         {
             echo($this->getSoportesAlquilados()[$numSoporte]->muestraResumen());
+            return $this;
         }
 
         function listarAlquileres()
@@ -111,7 +113,6 @@
                 }
             }
             echo $cadena;
-            
 
         }
     }

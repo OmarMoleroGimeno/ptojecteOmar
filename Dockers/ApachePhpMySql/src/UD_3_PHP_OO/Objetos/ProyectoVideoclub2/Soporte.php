@@ -1,5 +1,5 @@
 <?php
-    namespace Objetos\ProyectoVideoclub;
+    namespace Objetos\ProyectoVideoclub2;
     include_once("./resumible.php");
     abstract class Soporte implements Resumible
     {
