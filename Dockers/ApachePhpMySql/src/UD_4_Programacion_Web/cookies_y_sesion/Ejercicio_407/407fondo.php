@@ -1,20 +1,28 @@
 <?php
     ob_start(); // Evitar problemas con encabezados
 
-    $colorFondo = '#000000';
+    $bgColor = isset($_COOKIE['bgColor']) ? $_COOKIE['bgColor'] : '#000000';
 
-    // Gestionar fondo
-    if (isset($_COOKIE['fondo'])) {
-        $accesosPagina = $_COOKIE['accesos']; // Recuperar el valor de la cookie
-        setcookie('accesos', ++$accesosPagina); // Incrementar y actualizar la cookie
-        echo "<h1>Bienvenido de nuevo</h1>";
-        echo "<p>Acceso nº $accesosPagina</p>";
-    } else {
-        setcookie('fondo', ++$accesosPagina); // Crear la cookie
-        echo "<h1>Bienvenido por primera vez</h1>";
-        echo "<p>Acceso nº $accesosPagina</p>";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bgColor'])) 
+    {
+        $bgColor = '#' . $_POST['bgColor'];
+        setcookie('bgColor', $bgColor, time() + 86400); // Cookie válida por 24 horas
     }
-    echo "<br><a href='406contadorVisitas.php?reset=1'>Reiniciar contador</a>";
+
+    echo "<style>body{background-color:" .  $bgColor . ";</style>";
+
+    echo "<form method='POST' action=''>
+            <select name='bgColor'>
+                <option value='0c80fc' " . ($bgColor === '#0c80fc' ? 'selected' : '') . ">Azul</option>
+                <option value='55fc0c' " . ($bgColor === '#55fc0c' ? 'selected' : '') . ">Verde</option>
+                <option value='000000' " . ($bgColor === '#000000' ? 'selected' : '') . ">Negro</option>
+                <option value='fbf82c' " . ($bgColor === '#fbf82c' ? 'selected' : '') . ">Amarillo</option>
+                <option value='f61300' " . ($bgColor === '#f61300' ? 'selected' : '') . ">Rojo</option>
+            </select>
+            <br>
+            <button type='submit'>Guardar</button>
+          </form>";
+
 
     ob_end_flush(); // Enviar salida al navegador
 ?>
