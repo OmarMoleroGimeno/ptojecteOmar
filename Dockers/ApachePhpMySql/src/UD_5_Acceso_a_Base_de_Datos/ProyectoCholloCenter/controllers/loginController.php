@@ -28,8 +28,17 @@
             {
                 setcookie('username', $username, time() + 3600, '/', '', false, true);
                 setcookie('role', $role, time() + 3600, '/', '', false, true);
-                header('Location: ../views/index.php');
-                exit;
+                if ($role === 'admin')
+                {
+                    header('Location: ../views/admin.php');
+                    exit;
+                }
+                else
+                {
+                    header('Location: ../views/usuario.php');
+                    exit;
+                }
+                
             }
             else
             {
