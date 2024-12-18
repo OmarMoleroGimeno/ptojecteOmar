@@ -30,12 +30,12 @@
                 setcookie('role', $role, time() + 3600, '/', '', false, true);
                 if ($role === 'admin')
                 {
-                    header('Location: ../views/admin.php');
+                    header('Location: ../views/admin/admin.php');
                     exit;
                 }
                 else
                 {
-                    header('Location: ../views/usuario.php');
+                    header('Location: ../views/usuario/usuario.php');
                     exit;
                 }
                 

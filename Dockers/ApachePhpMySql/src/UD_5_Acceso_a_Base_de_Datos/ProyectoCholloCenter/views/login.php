@@ -1,3 +1,8 @@
+<?php
+    setcookie('username', '', time() - 3600, '/');
+    setcookie('role', '', time() - 3600, '/');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -118,8 +123,9 @@
             border-color: #fff;
         }
 
-
-
+        p a {
+            color: white;
+        }
 
     </style>
 </head>
@@ -138,6 +144,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required="">
             </div>
+            <p><a href="./registrar.php">Create account</a></p>
             <button class="form-submit-btn" type="submit">Iniciar sessión</button>
         </form>
         </div>
