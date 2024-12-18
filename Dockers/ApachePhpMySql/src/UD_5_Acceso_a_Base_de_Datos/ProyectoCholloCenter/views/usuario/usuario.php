@@ -77,7 +77,7 @@
         <h1>Bienvenido <?= htmlspecialchars($_COOKIE['username']) ?>  a chollocenter</h1>
     </div>
     <div class="container">
-        <form action="./formCreateChollo.php" method="post">
+        <form action="../formCreateChollo.php" method="post">
             <button class="btnCreate noselect" type="submit">
                 <span class="text">Add</span>
                 <span class="icon"><svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -109,7 +109,6 @@
                 </div>
             <?php endforeach; ?>
         </div>
-
     </div>
 </body>
 <style>

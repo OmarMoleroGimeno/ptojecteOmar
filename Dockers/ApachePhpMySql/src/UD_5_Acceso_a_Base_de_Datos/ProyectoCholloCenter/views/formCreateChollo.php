@@ -19,7 +19,7 @@
 <body>
   <h1 class="container">Crear Chollo</h1>
   <div class="container">
-    <form class="form" action="../../controllers/chollo/createController.php" method="post" enctype="multipart/form-data">
+    <form class="form" action="../controllers/chollo/createController.php" method="post" enctype="multipart/form-data">
       <span class="input-span">
           <label for="title" class="label">Title</label>
           <input type="text" name="title" id="title" required="">
